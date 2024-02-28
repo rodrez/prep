@@ -25,7 +25,25 @@
 # Follow up: What if the inputs contain Unicode characters? How would you adapt
 # your solution to such a case?
 #
+def first_attempt(s, t):
+    return s == t[::-1]
 
 
-def main():
-    pass
+def second_attempt(s, t):
+    for i, char in enumerate(s):
+        if char != t[len(t) - 1 - i]:
+            return False
+    return True
+
+
+s = "cat"
+t = "tac"
+
+one = "tar"
+two = "car"
+
+print("First True: ", first_attempt(s, t))
+print("First False: ", first_attempt(one, two))
+
+print("Second True: ", second_attempt(s, t))
+print("Second False: ", second_attempt(one, two))
